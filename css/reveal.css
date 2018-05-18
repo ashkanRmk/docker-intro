@@ -61,16 +61,16 @@
  * RESET STYLES
  *********************************************/
  @font-face {
-  font-family: Samim;
-  src: url('lib/font/samim-font/Samim.eot');
-  src: url('lib/font/samim-font/Samim.eot?#iefix') format('embedded-opentype'),
-       url('lib/font/samim-font/Samim.woff') format('woff'),
-       url('lib/font/samim-font/Samim.ttf') format('truetype');
+  font-family: Tanha;
+  src: url('lib/font/samim-font/Tanha.eot');
+  src: url('lib/font/samim-font/Tanha.eot?#iefix') format('embedded-opentype'),
+       url('lib/font/samim-font/Tanha.woff') format('woff'),
+       url('lib/font/samim-font/Tanha.ttf') format('truetype');
   font-weight: normal;
 }
 
 @font-face {
-  font-family: Samim;
+  font-family: Tanha;
   src: url('lib/font/samim-font/Samim-Bold.eot');
   src: url('lib/font/samim-font/Samim-Bold.eot?#iefix') format('embedded-opentype'),
        url('lib/font/samim-font/Samim-Bold.woff') format('woff'),
@@ -363,7 +363,7 @@ body {
   right: 8px;
   bottom: 8px;
   z-index: 31;
-  font-family: Samim, Helvetica, sans-serif;
+  font-family: Tanha, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 1;
   color: #fff;
@@ -1155,7 +1155,7 @@ body {
 .reveal.rtl .slides h5,
 .reveal.rtl .slides h6 {
   direction: rtl;
-  font-family: Samim, sans-serif; }
+  font-family: Tanha, sans-serif; }
 
 .reveal.rtl pre,
 .reveal.rtl code {
@@ -1422,7 +1422,7 @@ body {
   overflow: auto;
   box-sizing: border-box;
   text-align: left;
-  font-family: Samim, Helvetica, sans-serif;
+  font-family: Tanha, Helvetica, sans-serif;
   -webkit-overflow-scrolling: touch; }
 
 .reveal .speaker-notes.visible:not(:empty) {
