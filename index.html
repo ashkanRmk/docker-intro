@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="fa">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Docker - Ashkan Rahmani</title>
+
+	<meta name="description" content="Presentation slides for Introduction to Docker." />
+	<meta name="author" content="Ashkan Rahmani" />
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/moon.css">
+
+	<!-- font-awesome refrence -->
+	<link rel="stylesheet" href="plugin	/font-awesome/css/font-awesome.min.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<style>
+		@font-face {
+			font-family: Samim;
+			src: url('lib/font/samim-font/Samim.eot');
+			src: url('lib/font/samim-font/Samim.eot?#iefix') format('embedded-opentype'),
+			url('lib/font/samim-font/Samim.woff') format('woff'),
+			url('lib/font/samim-font/Samim.ttf') format('truetype');
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: Samim;
+			src: url('lib/font/samim-font/Samim-Bold.eot');
+			src: url('lib/font/samim-font/Samim-Bold.eot?#iefix') format('embedded-opentype'),
+			url('lib/font/samim-font/Samim-Bold.woff') format('woff'),
+			url('lib/font/samim-font/Samim-Bold.ttf') format('truetype');
+			font-weight: bold;
+		}
+
+		a:link {
+			color: #FFFFFF
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<img id="besm" src="img/besm.png" align="middle" style="height:auto; width:550px;">
+			</section>
+			<section data-background-image="img/cloud.jpg" data-background-transition="zoom">
+				<h4 style="color:#000000" class="fragment fade-up">
+					<b>توسعه نوین وب</b>
+				</h4>
+				<br>
+				<br>
+				<br>
+				<br>
+			</section>
+			<section data-background-color="#4a148c" data-background-transition="zoom">
+				<i class="fa fa-quote-right fa-2x fa-pull-right" aria-hidden="true"></i>
+				<h2 align="right">شعار داکر:</h2>
+				<div class="list-group fragment fade-up" align="left">
+					<b>
+						<p class="list-group-item">
+							&nbsp; Build any app
+							<i class="fa fa-bolt fa-fw"></i>
+						</p>
+						<p class="list-group-item">
+							&nbsp; Ship any where
+							<i class="fa fa-cogs fa-fw"></i>
+						</p>
+						<p class="list-group-item">
+							&nbsp; Run any where
+							<i class="fa fa-code fa-fw"></i>
+						</p>
+					</b>
+				</div>
+				<img src="img/doci.png" class="fragment fade-up" style="height:230px; width:auto;">
+			</section>
+			<section data-background-color="#0B3846" data-background-transition="zoom">
+				<img id="besm" src="img/LargeLogo.png" style="height:auto; width:300px; float:left;">
+				<br>
+				<br>
+				<h3 align="center">استفاده از داکر در توسعه نرم‌افزارهای تحت میزبانی ابری</h3>
+				<img src="img/rlogo.png" style="height:200px; width:auto;">
+				<br>
+				<br>
+				<br>
+				<div class="right-box">
+					<p style="line-height: 75%">
+						<font size="6" style="align-items:flex-start">
+							<b>اشکان رحمانی</b>
+						</font>
+						<br>
+						<font size="4">توسعه‌دهنده سمت سرور</font>
+						<a href="http://ashkanam.ir/">
+							<font size="6">
+								<b>http://ashkanam.ir</b>
+								<i class="fa fa-rss" aria-hidden="true"></i>
+						</a>
+						</font>
+					</p>
+				</div>
+				<img src="img/profile.jpg" style="border-radius: 50%; height:150px; width: auto; position: fixed; bottom: 0; right: 0;">
+				<div class="left-box">
+					<p>
+						<font size="6"> درس
+							<b>یکپارچه‌سازی سازمانی</b>
+						</font>
+						<br>
+						<font size="6">
+							<i class="fa fa-calendar"></i> زمان:
+							<b>۳ خرداد ماه</b>
+						</font>
+					</p>
+				</div>
+			</section>
+			<section data-background-image="img/Abstract_Dark9.jpg" data-background-transition="zoom">
+				<h3 align="right">
+					<i class="fa fa-comments-o fa-2x"></i>
+					<b> آنچه خواهیم گفت:</b>
+				</h3>
+				<br>
+				<div class="list-group menu" align="right">
+					<font size="6">
+						<div class="fragment fade-left">
+							<p class="list-group-item">
+								<i class="fa fa-check-circle-o fa-fw"></i>&nbsp; داکر چیست؟</p>
+							<p class="list-group-item">
+								<i class="fa fa-check-circle-o fa-fw"></i>&nbsp; تاریخچه داکر</p>
+							<p class="list-group-item ">
+								<i class="fa fa-check-circle-o fa-fw"></i>&nbsp; چرا ما به داکر نیاز داریم؟</p>
+							<p class="list-group-item">
+								<i class="fa fa-check-circle-o fa-fw"></i>&nbsp; معرفی برخی مفاهیم داکر</p>
+						</div>
+						<div class="fragment fade-left">
+							<p class="list-group-item">
+								<i class="fa fa-check-circle-o fa-fw"></i>&nbsp; استفاده از داکر در عمل</p>
+							<p class="list-group-item">
+								<i class="fa fa-check-circle-o fa-fw"></i>&nbsp; نتیجه‌گیری</p>
+							<p class="list-group-item">
+								<i class="fa fa-check-circle-o fa-fw"></i> منابع</p>
+						</div>
+					</font>
+				</div>
+				<br>
+				<br>
+				<br>
+			</section>
+			<section data-transition="zoom" data-background-transition="zoom">
+				<h3 align="right">
+					<i class="fa fa-angle-double-up"></i>
+					<b> روند تکامل نسل‌ها:</b>
+				</h3>
+				<img src="img/aspnet.png" align="left">
+				<br>
+				<hr>
+				<br>
+				<br>
+				<h2 class="fragment fade-up">WebForms</h2>
+				<h2 class="fragment fade-up">MVC</h2>
+				<h2 class="fragment fade-up">Core</h2>
+			</section>
+			<section data-background-color="#4a148c" data-background-transition="zoom">
+				<div align="left">
+					<h2 style="float:left">asp.net</h2>
+					<p>WebForms</p>
+				</div>
+				<hr>
+				<div class="fragment fade-left">
+					<h3 align="right">
+						<i class="fa fa-check"></i>
+						<b> مزایا:</b>
+					</h3>
+					<div class="list-group" align="right">
+						<p>
+							ساختار شبیه به نرم‌افزارهای تحت ویندوز
+						</p>
+						<p>توسعه سریع نرم‌افزار</p>
+					</div>
+				</div>
+				<div class="fragment fade-left">
+					<h3 align="right">
+						<i class="fa fa-exclamation"></i>
+						<b> مشکلات:</b>
+					</h3>
+					<div class="list-group" align="right">
+						<font size="6">
+							<p>
+								ساختاری برپایه رویدادها Event-Driven
+							</p>
+							<p>از کنترل خارج‌شدن صفحات خروجی HTML</p>
+							<p>افت بازدهی و سنگین‌شدن برنامه</p>
+							<p>غیرممکن شدن عملیات Unit Testing</p>
+						</font>
+					</div>
+				</div>
+			</section>
+			<section data-background-color="#4a148c" data-background-transition="zoom">
+				<div align="left">
+					<h2 style="float:left">asp.net</h2>
+					<p>MVC</p>
+				</div>
+				<hr>
+				<div class="fragment fade-left">
+					<h3 align="right">
+						<i class="fa fa-check"></i>
+						<b> مزایا:</b>
+					</h3>
+					<div class="list-group" align="right">
+						<font size="6">
+							<p>
+								استفاده از معماری نرم‌افزاری Model - View - Controller
+							</p>
+							<p>امکان مدیریت و کنترل خروجی تولید شده</p>
+							<p>امکان یکپارچه‌سازی با فریم‌ورک‌های سمت کلاینت</p>
+						</font>
+					</div>
+				</div>
+				<div class="fragment fade-left">
+					<h3 align="right">
+						<i class="fa fa-exclamation"></i>
+						<b> مشکلات:</b>
+					</h3>
+					<div class="list-group" align="right">
+						<font size="6">
+							<p>
+								سنگین بودن حجم DotNet FrameWork
+							</p>
+							<p>متکی بودن به سیستم‌عامل ویندوز برای توسعه و انتشار</p>
+						</font>
+					</div>
+				</div>
+			</section>
+			<section data-transition="zoom" data-background-transition="zoom">
+				<div align="left">
+					<h2 style="float:left">asp.net</h2>
+					<p>Core</p>
+				</div>
+				<hr>
+				<div class="fragment fade-left">
+					<div style="position: relative; top: 0; left: 0;">
+						<p style="position: relative; top: 0; left: 0;">
+							<s>ASP.NET 5 MVC 6</s>
+						</p>
+						<p>ASP.NET Core 1.0</p>
+					</div>
+				</div>
+				<div class="fragment fade-left">
+					<div class="list-group" align="right">
+						<p>
+							<i class="fa fa-arrow-circle-left"></i> پیاده‌سازی دوباره از صفر و کاملا ماژولار
+						</p>
+						<p>
+							<i class="fa fa-arrow-circle-left"></i> بر پایه پکیج‌های NuGet
+						</p>
+						<p>
+							<i class="fa fa-arrow-circle-left"></i> یکپارچه شدن Web API و ASP.NET MVC
+						</p>
+						<p>
+							<i class="fa fa-arrow-circle-left"></i> اجرای عملیات Unit Testing کاملا مجزا
+						</p>
+						<font size="6">
+							<p>
+								<i class="fa fa-arrow-circle-left"></i> ادغام فریم‌ورک‌های سمت کلاینت مدرن با جریان‌کاری‌توسعه
+							</p>
+						</font>
+					</div>
+				</div>
+			</section>
+			<section data-transition="zoom" data-background-transition="slide">
+				<h3 align="right">
+					<i class="fa fa-code"></i> زبان #C
+				</h3>
+				<hr>
+				<p>چهارمین زبان محبوب سال 2017</p>
+				<img src="img/c.png" style="height:390px; width:auto;">
+				<br>
+				<font size="5">
+					<a href="https://insights.stackoverflow.com/survey/2017#most-popular-technologies" style="color: #FFFFFF">
+						<code class="box">https://insights.stackoverflow.com/survey/2017#most-popular-technologies</code>
+					</a>
+				</font>
+			</section>
+			<section data-transition="zoom" data-background-transition="slide">
+				<h3 align="right">هاست چندسکویی Kestrel</h3>
+				<hr>
+				<div class="fragment fade-left">
+					<div class="list-group" align="right">
+						<p>فریم‌ورک Node.js بسیار سریع است!</p>
+						<p>با پردازش بیش‌از 400000 درخواست در ثانیه ...</p>
+					</div>
+					<img src="img/node.png" style="height:200px; width:auto;">
+					<br>
+					<font size="6">
+						<a href="https://www.techempower.com/benchmarks/#section=data-r14&hw=ph&test=plaintext" style="color: #FFFFFF">
+							<code class="box">https://www.techempower.com/benchmarks/#section=data-r14&hw=ph&test=plaintext</code>
+						</a>
+					</font>
+				</div>
+			</section>
+			<section data-transition="slide" data-background-transition="zoom">
+				<h3 align="right">هاست چندسکویی Kestrel</h3>
+				<hr>
+				<div class="fragment fade-left">
+					<div class="list-group" align="right">
+						<p>فریم‌ورک ASP.NET Core فوق‌العاده سریع است!</p>
+						<p>
+							پردازش بیش‌از 1700000 درخواست بر ثانیه!!
+						</p>
+					</div>
+					<p>
+						<i class="fa fa-exclamation-circle"></i> سرعتی حدود 5 برابر Node.js</p>
+					<img src="img/core.png" style="height:160px; width:auto;">
+					<br>
+					<font size="6">
+						<a href="https://www.techempower.com/benchmarks/#section=data-r14&hw=ph&test=plaintext" style="color: #FFFFFF">
+							<code class="box">https://www.techempower.com/benchmarks/#section=data-r14&hw=ph&test=plaintext</code>
+						</a>
+					</font>
+				</div>
+			</section>
+			<section data-background-color="#004d40" data-background-transition="slide">
+				<h3 align="left">
+					<i class="fa fa-code"></i> Meta Packages</h3>
+				<hr>
+				<font size="6">
+					<p align="right" class="box">
+						<i class="fa fa-bolt"></i> وجود 136 پکیج متفاوت در متاپکیج Microsoft.AspNetCore.All
+					</p>
+				</font>
+				<div class="fragment fade-right">
+					<div class="twocol" align="left">
+						<p> Authentication
+							<i class="fa fa-dot-circle-o fa-fw"></i>
+						</p>
+						<p> Authorization
+							<i class="fa fa-dot-circle-o fa-fw"></i>
+						</p>
+						<p> Kestrel
+							<i class="fa fa-dot-circle-o fa-fw"></i>
+						</p>
+						<p> Logging
+							<i class="fa fa-dot-circle-o fa-fw"></i>
+						</p>
+						<p> Razor
+							<i class="fa fa-dot-circle-o fa-fw"></i>
+						</p>
+						<p> SqlServer
+							<i class="fa fa-dot-circle-o fa-fw"></i>
+						</p>
+						<p> SqlLite
+							<i class="fa fa-dot-circle-o fa-fw"></i>
+						</p>
+						<p> EntityFramework
+							<i class="fa fa-dot-circle-o fa-fw"></i>
+						</p>
+						<p> ...</p>
+					</div>
+					<font size="6">
+						<a href="https://www.nuget.org/packages/Microsoft.AspNetCore.all" style="color: #FFFFFF">
+							<code class="box">https://www.nuget.org/packages/Microsoft.AspNetCore.all</code>
+						</a>
+					</font>
+				</div>
+			</section>
+			<section data-transition="slide" data-background-color="#004d40" data-background-transition="zoom">
+				<h3 align="left">
+					<i class="fa fa-code"></i> Meta Packages</h3>
+				<hr>
+				<div class="fragment fade-left">
+					<p>
+						<i class="fa fa-bell-o"></i> تضاد ماژولار بودن با متاپکیج‌ها</p>
+				</div>
+				<div class="fragment fade-left">
+					<div class="box">
+						<p align="right">
+							<i class="fa fa-commenting"></i> راه حل:</p>
+						<p align="right">
+							<i class="fa fa-paperclip"></i> تزریق وابستگی داخلی Dependency Injection</p>
+					</div>
+					<img src="img/di.png" style="height:300px; width:auto;">
+					<br>
+				</div>
+			</section>
+			<section data-transition="zoom" data-background-transition="slide">
+				<h3 align="right">
+					<i class="fa fa-cogs"></i> متن‌باز و کراس‌پلت‌فرم</h3>
+				<hr>
+				<div class="list-group" align="right">
+					<font size="6">
+						<p>
+							متن‌باز شدن تکنولوژی‌های وابسته تحت مجوز Apache License 2.0
+						</p>
+					</font>
+				</div>
+				<img src="img/git.png" style="height:380px; width:auto;">
+				<font size="6">
+					<a href="https://github.com/aspnet" style="color: #FFFFFF">
+						<code class="box">https://github.com/aspnet</code>
+					</a>
+				</font>
+			</section>
+			<section data-transition="slide" data-background-transition="zoom">
+				<h3 align="right">
+					<i class="fa fa-cogs"></i> متن‌باز و کراس‌پلت‌فرم</h3>
+				<hr>
+				<div class="list-group" align="right">
+					<p>
+						بیشترین Contribute در گیتهاب توسط مایکروسافت
+					</p>
+				</div>
+				<img src="img/mic.jpg" style="height:350px; width:auto;">
+				<br>
+				<font size="6">
+					<a href="https://github.com/trending/developers?since=monthly" style="color: #FFFFFF">
+						<code class="box">https://github.com/trending/developers?since=monthly</code>
+					</a>
+				</font>
+			</section>
+			<section data-transition="slide" data-background-transition="zoom">
+				<h3 align="right">
+					<i class="fa fa-cogs"></i> متن‌باز و کراس‌پلت‌فرم</h3>
+				<hr>
+				<div class="list-group" align="right">
+					<p>
+						<i class="fa fa-thumb-tack"></i> پیوستن افراد سرشناس حوزه اپن‌سورس به مایکروسافت
+					</p>
+					<font size="6">
+						<p>
+							<i class="fa fa-arrow-circle-left"></i> Sean Larkin: عضو تیم اصلی توسعه Webpack و Angular CLI
+						</p>
+						<p>
+							<i class="fa fa-arrow-circle-left"></i> John-David Dalton: خالق Lodash
+						</p>
+						<p>
+							<i class="fa fa-arrow-circle-left"></i> John Papa: مدرس محبوب PluralSight و نویسنده کتاب معروف AngularJS style guide
+						</p>
+						<p>
+							<i class="fa fa-arrow-circle-left"></i> Rob Eisenberg : خالق Durandal, Aurelia و توسعه‌دهنده اصلی Angular 2
+						</p>
+					</font>
+				</div>
+				<p>
+					<i class="fa fa-check"></i> پیوستن مایکروسافت به بنیاد لینوکس
+				</p>
+				<p>Linux Foundation</p>
+			</section>
+			<section data-transition="slide" data-background-color="#004d40" data-background-transition="zoom">
+				<h3 align="right">
+					<i class="fa fa-road"></i> مسیر راه آینده
+				</h3>
+				<hr>
+				<p>هنوز تعدادی از کتابخانه‌های Full framework به </p>
+				<p>NET Core. انتقال پیدا نکرده‌اند</p>
+				<img src="img/chart.webp" style="height:350px; width:auto;">
+				<br>
+			</section>
+			<section data-transition="slide" data-background-color="#004d40" data-background-transition="zoom">
+				<h3 align="right">
+					<i class="fa fa-road"></i> مسیر راه آینده
+				</h3>
+				<hr>
+				<img src="img/chartcore.png" style="height:450px; width:auto;">
+				<br>
+			</section>
+			<section data-background-color="#4a148c" data-background-transition="zoom">
+				<h3 align="right">
+					<i class="fa fa-lightbulb-o"></i> نتیجه‌گیری
+				</h3>
+				<hr>
+				<div class="list-group" align="right">
+					<p>
+						<i class="fa fa-arrow-circle-left"></i> زمان مناسبی برای همراه شدن با قطار Net.</p>
+					<p>
+						<i class="fa fa-arrow-circle-left"></i> قابلیت توسعه یک کد بر روی تمام پلت‌فرم‌ها</p>
+					<p>
+						<i class="fa fa-arrow-circle-left"></i> قابلیت توسعه تمام تکنولوژی‌ها مثل دسکتاپ، اپ نیتیو موبایل، تبلت، گجت‌های IoT، بازی و پردازش‌های ابری </p>
+					<p>
+						<i class="fa fa-arrow-circle-left"></i> برخورداری مزیت‌های بسیار نسبت به رقبا</p>
+				</div>
+				<h3>تنها کافیه شروع کنید!</h3>
+				<a href="https://www.microsoft.com/net/core" style="color: #FFFFFF">
+					<code class="box">https://www.microsoft.com/net/core</code>
+				</a>
+			</section>
+			<section data-background-color="#4a148c" data-background-transition="zoom">
+				<h3 align="right">
+					<i class="fa fa-book"></i> منابع
+				</h3>
+				<hr>
+				<div class="list-group" align="left">
+					<font size="6">
+						<a href="https://medium.com/@codingblast/why-you-should-join-net-core-and-asp-net-core-train-b57c357672e6" style="color: #FFFFFF">
+							<code class="box fa fa-check">https://medium.com/@codingblast/why-you-should-join-net-core-and-asp-net-core-train-b57c357672e6</code>
+						</a>
+						<br>
+						<a href="https://medium.com/@ipeo/why-should-you-consider-using-asp-net-core-edcc4ff39877" style="color: #FFFFFF">
+							<code class="box fa fa-check">https://medium.com/@ipeo/why-should-you-consider-using-asp-net-core-edcc4ff39877</code>
+						</a>
+						<br>
+						<a href="https://medium.com/@Helios_Solution/why-asp-net-core-mvc-is-so-popular-for-developing-modern-web-apps-8f47b877f439"
+						    style="color: #FFFFFF">
+							<code class="box fa fa-check">https://medium.com/@Helios_Solution/why-asp-net-core-mvc-is-so-popular-for-developing-modern-web-apps-8f47b877f439</code>
+						</a>
+					</font>
+					<hr>
+					<p align="right">
+						<i class="fa fa-github fa-2x"></i> سورس اسلاید در گیتهاب موجود است
+					</p>
+					<font size="6">
+						<a href="https://github.com/Ashkan-rmk/asp-net-presentation" style="color: #FFFFFF">
+							<code class="box">https://github.com/Ashkan-rmk/asp-net-presentation</code>
+						</a>
+					</font>
+					<br>
+					<hr>
+					<font size="5">
+						<p align="center">Made with
+							<i class="fa fa-heart"></i> by
+							<a href="https://github.com/hakimel/reveal.js">Reveal.js</a>
+						</p>
+					</font>
+				</div>
+			</section>
+			<section data-background-image="img/5.jpg" data-background-transition="zoom">
+				<h3 align="right" style="color:#000000;">
+					<b> باتشکر از توجه شما </b>
+				</h3>
+				<h2 align="right" style="color:#000000;">سوال
+					<i class="fa fa-question fa-spin"></i>
+				</h2>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.initialize({
+			rtl: true,
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				// Zoom in and out with Alt+click
+				{
+					src: 'plugin/zoom-js/zoom.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function () {
+						hljs.initHighlightingOnLoad();
+					}
+				},
+				{
+					src: 'http://localhost:3001/socket.io/socket.io.js',
+					async: true
+				},
+				{
+					src: 'plugin/remote-control/remote.js',
+					async: true
+				}
+			]
+		});
+		Reveal.configure({
+			slideNumber: 'c/t'
+		});
+	</script>
+</body>
+
+</html>
