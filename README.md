@@ -1,4 +1,4 @@
-> UNDER CONSTRUCTION :)
+
 
 # :speech_balloon: Introduction to Docker presentaion slides
 
